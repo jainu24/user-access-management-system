@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+	
+	<!-- Welcome File List Configuration -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+	<servlet>
+		<servlet-name>SignUpServlet</servlet-name>
+		<servlet-class>SignUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUpServlet</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SoftwareServlet</servlet-name>
+		<servlet-class>SoftwareServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SoftwareServlet</servlet-name>
+		<url-pattern>/createSoftware</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RequestServlet</servlet-name>
+		<servlet-class>RequestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServlet</servlet-name>
+		<url-pattern>/requestAccess</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ApprovalServlet</servlet-name>
+		<servlet-class>ApprovalServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ApprovalServlet</servlet-name>
+		<url-pattern>/approveRequest</url-pattern>
+	</servlet-mapping>
+</web-app>

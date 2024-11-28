@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.leucine.tech.uams</groupId>
+	<artifactId>user-access-management-system</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!-- Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Build Configuration -->
+	<build>
+		<finalName>UserAccessManagement</finalName>
+
+		<!-- Plugins for building and deploying the WAR file -->
+		<plugins>
+			<!-- Maven WAR Plugin to build WAR file -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<outputDirectory>${project.build.directory}/webapps</outputDirectory>
+				</configuration>
+			</plugin>
+
+			<!-- Maven Tomcat Plugin for deployment -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<!-- Deploy the WAR file to the external Tomcat
+							server -->
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>tomcat-server</server> <!-- Name of the server in
+					your settings.xml -->
+					<path>/UserAccessManagement</path> <!-- Context path in
+					Tomcat -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Maven Repositories (Optional) -->
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+</project>
